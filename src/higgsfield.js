@@ -14,8 +14,8 @@ module.exports = {
     utils.log("Launching WebKit (Codespaces compatible)...");
 
     this.browser = await webkit.launch({
-      headless: true,          // obligatoire dans Codespaces
-      args: ["--no-sandbox"]   // évite les erreurs de sandbox
+      headless: true,
+      args: ["--no-sandbox"]
     });
 
     const context = await this.browser.newContext({

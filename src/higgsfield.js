@@ -1,7 +1,6 @@
-
 // src/higgsfield.js
 
-const { chromium } = require("playwright");
+const { webkit } = require("playwright"); // IMPORTANT : WebKit pour Codespaces
 const fs = require("fs");
 const path = require("path");
 const config = require("./config");
@@ -12,9 +11,11 @@ module.exports = {
   page: null,
 
   async init() {
-    utils.log("Launching browser...");
-    this.browser = await chromium.launch({
-      headless: true
+    utils.log("Launching WebKit (Codespaces compatible)...");
+
+    this.browser = await webkit.launch({
+      headless: true,          // obligatoire dans Codespaces
+      args: ["--no-sandbox"]   // évite les erreurs de sandbox
     });
 
     const context = await this.browser.newContext({
@@ -28,7 +29,8 @@ module.exports = {
   async gotoHome() {
     utils.log("Navigating to Higgsfield...");
     await this.page.goto(config.BASE_URL, {
-      timeout: config.TIMEOUTS.navigation
+      timeout: config.TIMEOUTS.navigation,
+      waitUntil: "domcontentloaded"
     });
     utils.log("Higgsfield loaded.");
   },
@@ -84,3 +86,4 @@ module.exports = {
     }
   }
 };
+

@@ -1,0 +1,20 @@
+{
+  "name": "higgsfield-kling-automation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Automation of Higgsfield/Kling 3.0 using Playwright in GitHub Codespaces",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "dev": "NODE_ENV=development node src/main.js",
+    "playwright:install": "npx playwright install --with-deps",
+    "test": "node src/main.js"
+  },
+  "dependencies": {
+    "playwright": "1.58.2",
+    "dotenv": "16.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

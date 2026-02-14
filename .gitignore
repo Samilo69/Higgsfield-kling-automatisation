@@ -1,1 +1,21 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment
+.env
+
+# Playwright
+playwright-report/
+test-results/
+blob-report/
+trace.zip
+
+# Downloads
+downloads/
+
+# OS files
+.DS_Store
+Thumbs.db
 
